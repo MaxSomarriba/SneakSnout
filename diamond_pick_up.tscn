@@ -1,0 +1,195 @@
+[gd_scene load_steps=22 format=3 uid="uid://ckxgk1klhx14a"]
+
+[ext_resource type="Script" path="res://diamond_pickup.cs" id="1_c2i3g"]
+[ext_resource type="Texture2D" uid="uid://dk07vpxh01g68" path="res://Assets/Pickups/Big Diamond Hit (18x14).png" id="1_kumre"]
+[ext_resource type="Texture2D" uid="uid://dhbvshbextqgx" path="res://Assets/Pickups/Big Diamond Idle (18x14).png" id="2_xpqu7"]
+[ext_resource type="AudioStream" uid="uid://dpsjpmi886yhs" path="res://Assets/Sounds/Pickup_Coin12.wav" id="4_3nsvf"]
+
+[sub_resource type="Animation" id="Animation_whs3y"]
+resource_name = "Bounce"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -3, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="Animation" id="Animation_hmeei"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7mobm"]
+_data = {
+"Bounce": SubResource("Animation_whs3y"),
+"RESET": SubResource("Animation_hmeei")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n20vv"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3q52"]
+atlas = ExtResource("1_kumre")
+region = Rect2(0, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwjc6"]
+atlas = ExtResource("1_kumre")
+region = Rect2(18, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72eq4"]
+atlas = ExtResource("2_xpqu7")
+region = Rect2(0, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krcf5"]
+atlas = ExtResource("2_xpqu7")
+region = Rect2(18, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atc7m"]
+atlas = ExtResource("2_xpqu7")
+region = Rect2(36, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmca2"]
+atlas = ExtResource("2_xpqu7")
+region = Rect2(54, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urblf"]
+atlas = ExtResource("2_xpqu7")
+region = Rect2(72, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2ajq"]
+atlas = ExtResource("2_xpqu7")
+region = Rect2(90, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqvmv"]
+atlas = ExtResource("2_xpqu7")
+region = Rect2(108, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yokje"]
+atlas = ExtResource("2_xpqu7")
+region = Rect2(126, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u68n"]
+atlas = ExtResource("2_xpqu7")
+region = Rect2(144, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrv55"]
+atlas = ExtResource("2_xpqu7")
+region = Rect2(162, 0, 18, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8plit"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3q52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwjc6")
+}],
+"loop": false,
+"name": &"diamond_hit",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72eq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krcf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atc7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmca2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urblf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2ajq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqvmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yokje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u68n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrv55")
+}],
+"loop": true,
+"name": &"diamond_idle",
+"speed": 8.0
+}]
+
+[node name="DiamondPickUp" type="Node2D"]
+script = ExtResource("1_c2i3g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Bounce"
+libraries = {
+"": SubResource("AnimationLibrary_7mobm")
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+shape = SubResource("CapsuleShape2D_n20vv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_8plit")
+animation = &"diamond_hit"
+autoplay = "diamond_idle"
+frame = 1
+frame_progress = 1.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3nsvf")
+volume_db = -7.0
+
+[connection signal="body_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="Node2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
